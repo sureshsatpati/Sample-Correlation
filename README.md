@@ -1,87 +1,88 @@
-# Script for generating Pairwise Sample Correlation Plot
+## Script for generating Pairwise Sample Correlation Plot
 The sample correlation plot visualizes the relationships between multiple variables within a dataset by displaying the correlation coefficients between each pair of variables. 
 Each cell in the plot represents the correlation between two variables, with colors indicating the strength and direction of the correlation. Positive correlations are shown in one color range, while negative correlations are displayed in another, allowing for quick identification of strongly correlated and inversely correlated pairs. The plot provides an intuitive overview of how variables interact with each other, facilitating the detection of patterns, redundancies, and potential multicollinearity within the data. This type of visualization is particularly useful for exploratory data analysis, feature selection, and understanding complex interrelationships in high-dimensional datasets.
 
-Working Dependencies:
-----------------------------------------------------------------------------------------------------
+## 1. Working Dependencies:
+****************************************************************************************************
 R version 4.0
 
-Installation:
+1. Installation:
 
-library(ggplot2)
+- install.packages ("ggplot2") # [click here for more detailed view](https://ggplot2.tidyverse.org/)
+
+- Example Input file: File1 & File2
+  
+
+2. File preparation: In input file please provide .txt file extension with "\t" (tab) seperation
 
 
-Input file: File1 & File2
+- File1.txt
 
-Input File type: Provide .txt file extension with "\t" (tab) seperation
+        example: Col1    Col2
 
-####################################################################################################
-
-File1.txt
-
-example: Col1    Col2
-
-        Gene1    1234
+                Gene1    1234
         
-        Gene2    1112
+                Gene2    1112
 
-File2.txt
+- File2.txt
 
-example: Col1    Col3
+        example: Col1    Col3
 
-        Gene1    1222
+                Gene1    1222
         
-        Gene2     900
+                Gene2     900
 
-################################################################################################
+****************************************************************************************************
 
+                                   SCRIPT USAGE GUIDE  
 
-###############################   SCRIPT USAGE GUIDE ################################################
+                                  
+## 2. Install & Load library
 
-                                     ** START **
+        library(ggplot2)
 
-#Install & Load library
+## 3. Reading files
 
-library(ggplot2)
+        File1 <- read.table("File1.txt", header = TRUE)
 
-#Reading files
+        File2 <- read.table("File2.txt", header = TRUE)
 
-File1 <- read.table("File1.txt", header = TRUE)
+## 4. Data merge
 
-File2 <- read.table("File2.txt", header = TRUE)
+        merged_data <- merge(rna_data, chip_data, by = "Col1")
 
-#Data merge
+        correlation <- cor(merged_data$Col2, merged_data$Col3)
 
-merged_data <- merge(rna_data, chip_data, by = "Col1")
-
-correlation <- cor(merged_data$Col2, merged_data$Col3)
-
-plot <- ggplot(merged_data, aes(x = Col2, y = Col3)) +
-
-   geom_point() +
-   
-   geom_smooth(method = "lm", se = FALSE, color = "blue") +
-   
-   labs(title = paste("Correlation: ", round(correlation, 2)),
-   
-        x = "Col2_targets",
+        plot <- ggplot(merged_data, aes(x = Col2, y = Col3)) +
         
-        y = "Col3_targets") +
-        
-   theme_minimal()
-   
-ggsave(filename = "Pairwise_correlation_plot.pdf", plot = plot, width = 8, height = 6) #Save file
+           geom_point() +
+           
+           geom_smooth(method = "lm", se = FALSE, color = "blue") +
+           
+           labs(title = paste("Correlation: ", round(correlation, 2)),
+           
+                x = "Col2_targets",
+                
+                y = "Col3_targets") +
+                
+           theme_minimal()
 
-#A correlation suggests that there might be some degree of relationship between the gene expression levels and the binding intensity of the protein.
-######################################################################################################
+## 5. Save plot   
+        ggsave(filename = "Pairwise_correlation_plot.pdf", plot = plot, width = 8, height = 6) 
 
-                                    ** END **
+## 6. ![Demo plot](relative/path/to/image.png)
+### A correlation suggests that there might be some degree of relationship between the gene expression levels and the binding intensity of the protein.
+        Correlation scale:
+
+        Low::Moderate::High - Correlation
+
+                                        
+****************************************************************************************************
+
 --------------------------------------------------------------------------------------------------------------
-Correlation scale:
 
-Low:Moderate:High - Correlation
 
-# Note: Please be careful while copy pasting indentation might cause trouble for you.
+##### Note: Please be careful while copy pasting indentation might cause trouble for you.
 
 
           
