@@ -3,26 +3,39 @@ The sample correlation plot visualizes the relationships between multiple variab
 Each cell in the plot represents the correlation between two variables, with colors indicating the strength and direction of the correlation. Positive correlations are shown in one color range, while negative correlations are displayed in another, allowing for quick identification of strongly correlated and inversely correlated pairs. The plot provides an intuitive overview of how variables interact with each other, facilitating the detection of patterns, redundancies, and potential multicollinearity within the data. This type of visualization is particularly useful for exploratory data analysis, feature selection, and understanding complex interrelationships in high-dimensional datasets.
 
 Working Dependencies:
+
 R version 4.0
 
 Installation:
+
 library(ggplot2)
 
 
 Input file: File1 & File2
+
 Input File type: Provide .txt file extension with "\t" (tab) seperation
 
+############################################
+
 File1.txt
+
 example: Col1    Col2
         Gene1    1234
         Gene2    1112
 
 File2.txt
+
 example: Col1    Col3
         Gene1    1222
         Gene2     900
 
-#Loading library
+############################################
+
+
+############################################################################   SCRIPT USAGE GUIDE ##########################################################################
+
+#Install & Load library
+
 library(ggplot2)
 
 #Reading files
