@@ -70,7 +70,8 @@ R version 4.0
 ## 5. Save plot   
         ggsave(filename = "Pairwise_correlation_plot.pdf", plot = plot, width = 8, height = 6) 
 
-## 6. ![Demo plot](relative/path/to/image.png)
+  ![Demo plot](https://raw.githubusercontent.com/sureshsatpati/Sample-Correlation/main/Correlation.jpg)
+
 ### A correlation suggests that there might be some degree of relationship between the gene expression levels and the binding intensity of the protein.
         Correlation scale:
 
