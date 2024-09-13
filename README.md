@@ -38,6 +38,8 @@ example: Col1    Col3
 
 ###############################   SCRIPT USAGE GUIDE #####################################
 
+                                     ** START **
+
 #Install & Load library
 
 library(ggplot2)
@@ -71,6 +73,9 @@ plot <- ggplot(merged_data, aes(x = Col2, y = Col3)) +
 ggsave(filename = "Pairwise_correlation_plot.pdf", plot = plot, width = 8, height = 6) #Save file
 
 #A correlation suggests that there might be some degree of relationship between the gene expression levels and the binding intensity of the protein.
+
+
+                                    ** END **
 
 Correlation scale:
 
