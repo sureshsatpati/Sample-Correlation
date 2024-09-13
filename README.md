@@ -31,7 +31,9 @@ File2 <- read.table("File2.txt", header = TRUE)
 
 #Data merge
 merged_data <- merge(rna_data, chip_data, by = "Col1")
+
 correlation <- cor(merged_data$Col2, merged_data$Col3)
+
 plot <- ggplot(merged_data, aes(x = Col2, y = Col3)) +
    geom_point() +
    geom_smooth(method = "lm", se = FALSE, color = "blue") +
