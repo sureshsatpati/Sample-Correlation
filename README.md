@@ -20,13 +20,17 @@ Input File type: Provide .txt file extension with "\t" (tab) seperation
 File1.txt
 
 example: Col1    Col2
+
         Gene1    1234
+        
         Gene2    1112
 
 File2.txt
 
 example: Col1    Col3
+
         Gene1    1222
+        
         Gene2     900
 
 #######################
@@ -39,10 +43,13 @@ example: Col1    Col3
 library(ggplot2)
 
 #Reading files
+
 File1 <- read.table("File1.txt", header = TRUE)
+
 File2 <- read.table("File2.txt", header = TRUE)
 
 #Data merge
+
 merged_data <- merge(rna_data, chip_data, by = "Col1")
 
 correlation <- cor(merged_data$Col2, merged_data$Col3)
