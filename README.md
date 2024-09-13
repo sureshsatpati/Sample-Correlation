@@ -35,17 +35,25 @@ merged_data <- merge(rna_data, chip_data, by = "Col1")
 correlation <- cor(merged_data$Col2, merged_data$Col3)
 
 plot <- ggplot(merged_data, aes(x = Col2, y = Col3)) +
+
    geom_point() +
+   
    geom_smooth(method = "lm", se = FALSE, color = "blue") +
+   
    labs(title = paste("Correlation: ", round(correlation, 2)),
+   
         x = "Col2_targets",
+        
         y = "Col3_targets") +
+        
    theme_minimal()
+   
 ggsave(filename = "Pairwise_correlation_plot.pdf", plot = plot, width = 8, height = 6) #Save file
 
 #A correlation suggests that there might be some degree of relationship between the gene expression levels and the binding intensity of the protein.
 
 Correlation scale:
+
 Low:Moderate:High - Correlation
 
 
