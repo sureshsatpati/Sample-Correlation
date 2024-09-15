@@ -10,7 +10,7 @@ R version 4.0
 
 1. Installation:
 
-- install.packages ("ggplot2") # [click here for more detailed view](https://ggplot2.tidyverse.org/)
+- install.packages ("ggplot2") # [click here for more detailed understanding](https://ggplot2.tidyverse.org/)
 
 - Example Input file: File1 & File2
   
